@@ -26,9 +26,10 @@ button {
 .gallery__item {
   display: block;
   list-style: none;
+  margin-bottom: 20px;
 }
 .gallery__image {
   display: block;
-  width: 400px;
+  width: 350px;
   height: 200px;
 }
