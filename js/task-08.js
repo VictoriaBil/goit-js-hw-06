@@ -1,25 +1,31 @@
 const form = document.querySelector(".login-form");
 form.addEventListener("submit", onFormSubmit);
+
 function onFormSubmit(event) {
   event.preventDefault();
-  const newForm = new FormData(event.currentTarget);
-  console.log(newForm);
+  // const newForm = new FormData(event.currentTarget);
+  // console.log(newForm);
+  const formEl = event.currentTarget.elements;
+  const email = formEl.email.value;
+  const password = formEl.password.value;
 
-  const email = event.currentTarget.elements.email.value;
-
-  const password = event.currentTarget.elements.password.value;
-
-  if (email.length === 0 || password.length === 0) {
-    alert("Заповніть всі поля");
-    return;
+  if (email && password !== "") {
+    const formData = { email, password };
+    console.log(formData);
+    form.reset();
+  } else {
+    window.alert("Заповніть всі поля");
   }
 
-  newForm.forEach((name, value) => {
-    console.log(value);
-    console.log(name);
-  });
+  // if (email.length === 0 || password.length === 0) {
+  //   alert("Заповніть всі поля");
+  //   return;
+  // }
 
-  form.reset();
+  // newForm.forEach((name, value) => {
+  //   console.log(value);
+  //   console.log(name);
+  // });
 }
 //   const formElements = event.currentTarget.elements;
 //   const mail = formElements.email.value;
